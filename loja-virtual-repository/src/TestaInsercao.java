@@ -9,24 +9,25 @@ public class TestaInsercao {
 	public static void main(String[] args) throws SQLException {
 		
 		ConnectionFactory criaConexao = new ConnectionFactory();
-		Connection connectionFactory = criaConexao.recuperarConexao();
+		try(Connection connectionFactory = criaConexao.recuperarConexao()){
 		
-		//String nome = "TV SMART";
-		//String descricao = "TV SMART TOSHIBA";
-		//PreparedStatement stm = connectionFactory.prepareStatement("INSERT INTO Produto (nome, descricao) VALUES ('" + nome + "','" + descricao + "')",
-		//		Statement.RETURN_GENERATED_KEYS);
-		
-		PreparedStatement stm = connectionFactory.prepareStatement("INSERT INTO Produto (nome, descricao) VALUES ('TV SMART','TV SMART TOSHIBA')",
-				Statement.RETURN_GENERATED_KEYS);
-		stm.execute();
-		
-		ResultSet rst = stm.getGeneratedKeys();
-		
-		while(rst.next()) {
-			System.out.println("O ID criado é: " + rst.getInt(1));
+			//String nome = "TV SMART";
+			//String descricao = "TV SMART TOSHIBA";
+			//PreparedStatement stm = connectionFactory.prepareStatement("INSERT INTO Produto (nome, descricao) VALUES ('" + nome + "','" + descricao + "')",
+			//		Statement.RETURN_GENERATED_KEYS);
+			
+			PreparedStatement stm = connectionFactory.prepareStatement("INSERT INTO Produto (nome, descricao) VALUES ('TV SMART','TV SMART TOSHIBA')",
+					Statement.RETURN_GENERATED_KEYS);
+			stm.execute();
+			
+			try(ResultSet rst = stm.getGeneratedKeys()){
+				
+				while(rst.next()) {
+					System.out.println("O ID criado é: " + rst.getInt(1));
+				}
+				
+			}
 		}
-		
-		connectionFactory.close();
 	}
 
 }

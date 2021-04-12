@@ -8,23 +8,24 @@ public class TestaListagem {
 	public static void main(String[] args) throws SQLException {
 		
 		ConnectionFactory criaConexao = new ConnectionFactory();
-		Connection connectionFactory = criaConexao.recuperarConexao();
+		try(Connection connectionFactory = criaConexao.recuperarConexao()){
 		
-		PreparedStatement stm = connectionFactory.prepareStatement("SELECT id, nome, descricao FROM Produto");
-		stm.execute();
-		
-		ResultSet rst = stm.getResultSet();
-		
-		while(rst.next()) {
-			System.out.print(rst.getInt("ID"));
-			System.out.print(" | ");
-			System.out.print(rst.getString("nome"));
-			System.out.print(" | ");
-			System.out.print(rst.getString("descricao"));
-			System.out.println("");
+			PreparedStatement stm = connectionFactory.prepareStatement("SELECT id, nome, descricao FROM Produto");
+			stm.execute();
+			
+			try(ResultSet rst = stm.getResultSet()){
+			
+				while(rst.next()) {
+					System.out.print(rst.getInt("ID"));
+					System.out.print(" | ");
+					System.out.print(rst.getString("nome"));
+					System.out.print(" | ");
+					System.out.print(rst.getString("descricao"));
+					System.out.println("");
+				}
+			
+			}
 		}
-		
-		connectionFactory.close();
 
 	}
 

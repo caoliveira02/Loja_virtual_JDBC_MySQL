@@ -24,9 +24,7 @@ public class TesteInsercaoComParametro {
 		while(rst.next()) {
 			System.out.println("O ID criado é: " + rst.getInt(1));
 		}
-		
-		rst.close();
-		stm.close();
+			
 		connectionFactory.close();
 		
 	}
