@@ -1,0 +1,16 @@
+package br_com_jdbc;
+
+import java.sql.Connection;
+
+public class TestaConexao {
+
+	public static void main(String[] args) {
+		ConnectionFactory criaConexao = new ConnectionFactory();
+		Connection connectionFactory = criaConexao.recuperarConexao();
+
+		System.out.println("Fechando a conexão");
+		
+		connectionFactory.close();
+	}
+
+}

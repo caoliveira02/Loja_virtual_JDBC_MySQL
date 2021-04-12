@@ -1,0 +1,10 @@
+package br.com.jdbc;
+
+public class TestePoolConexoes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

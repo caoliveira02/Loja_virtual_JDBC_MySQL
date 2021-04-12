@@ -1,0 +1,12 @@
+package br.com.jdbc;
+
+import br.com.jdbc.ConnectionFactory;
+
+public class TestePoolConexoes {
+
+	public static void main(String[] args) {
+
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+	}
+
+}
