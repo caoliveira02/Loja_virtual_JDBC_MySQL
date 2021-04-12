@@ -10,8 +10,7 @@ public class TestaListagem {
 		ConnectionFactory criaConexao = new ConnectionFactory();
 		Connection connectionFactory = criaConexao.recuperarConexao();
 		
-		Statement stm = connectionFactory.createStatement();
-		stm.execute("SELECT id, nome, descricao FROM Produto");
+		connectionFactory		stm.execute("SELECT id, nome, descricao FROM Produto");
 		ResultSet rst = stm.getResultSet();
 		
 		while(rst.next()) {
@@ -23,7 +22,7 @@ public class TestaListagem {
 			System.out.println("");
 		}
 		
-		connectionFactory.close();
+		connection.close();
 
 	}
 

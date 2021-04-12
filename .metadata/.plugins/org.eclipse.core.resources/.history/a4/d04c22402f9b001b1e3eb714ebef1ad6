@@ -7,10 +7,10 @@ public class TestaListagem {
 
 	public static void main(String[] args) throws SQLException {
 		
-		ConnectionFactory criaConexao = new ConnectionFactory();
-		Connection connectionFactory = criaConexao.recuperarConexao();
+		CriaConexao criaConexao = new CriaConexao();
+		Connection connection = criaConexao.recuperarConexao();
 		
-		Statement stm = connectionFactory.createStatement();
+		Statement stm = connection.createStatement();
 		stm.execute("SELECT id, nome, descricao FROM Produto");
 		ResultSet rst = stm.getResultSet();
 		
@@ -23,7 +23,7 @@ public class TestaListagem {
 			System.out.println("");
 		}
 		
-		connectionFactory.close();
+		connection.close();
 
 	}
 
