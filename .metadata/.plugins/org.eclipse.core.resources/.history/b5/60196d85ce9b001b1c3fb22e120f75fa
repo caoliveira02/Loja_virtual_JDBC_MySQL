@@ -38,10 +38,6 @@ public class TesteInsercaoComParametroDeVariosProdutos {
 		stm.setString(1, nome);
 		stm.setString(2, descricao);
 		
-		/*if (nome.equals("Radio")) {
-			throw new RuntimeException("Não foi possivel adcionar o produto");
-		}*/
-		
 		stm.execute();
 					
 		ResultSet rst = stm.getGeneratedKeys();
