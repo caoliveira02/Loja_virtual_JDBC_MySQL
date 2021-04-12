@@ -19,8 +19,6 @@ public class TestaInsercao {
 		while(rst.next()) {
 			System.out.println("O ID criado é: " + rst.getInt(1));
 		}
-		
-		connectionFactory.close();
 	}
 
 }
