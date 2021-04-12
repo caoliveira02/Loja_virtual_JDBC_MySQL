@@ -1,5 +1,4 @@
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,14 +10,9 @@ public class TestaInsercao {
 		ConnectionFactory criaConexao = new ConnectionFactory();
 		Connection connectionFactory = criaConexao.recuperarConexao();
 		
-		//String nome = "TV SMART";
-		//String descricao = "TV SMART TOSHIBA";
-		//PreparedStatement stm = connectionFactory.prepareStatement("INSERT INTO Produto (nome, descricao) VALUES ('" + nome + "','" + descricao + "')",
-		//		Statement.RETURN_GENERATED_KEYS);
-		
-		PreparedStatement stm = connectionFactory.prepareStatement("INSERT INTO Produto (nome, descricao) VALUES ('TV SMART','TV SMART TOSHIBA')",
+		Statement stm = connectionFactory.createStatement();
+		stm.execute("INSERT INTO Produto (nome, descricao) VALUES ('TV SMART','TV SMART TOSHIBA')",
 				Statement.RETURN_GENERATED_KEYS);
-		stm.execute();
 		
 		ResultSet rst = stm.getGeneratedKeys();
 		
