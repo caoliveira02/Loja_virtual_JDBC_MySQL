@@ -1,13 +1,10 @@
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import javax.sql.DataSource;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class ConnectionFactory {
-	
-	public DataSource dataSource;
 	
 	public ConnectionFactory() {
 		
@@ -16,15 +13,14 @@ public class ConnectionFactory {
 		comboPooledDataSource.setUser("root");
 		comboPooledDataSource.setPassword("123456");
 		
-		comboPooledDataSource.setMaxPoolSize(15);
-		
-		this.dataSource = comboPooledDataSource;
 	}
 
 	public Connection recuperarConexao() throws SQLException {
 		
-		/*Recupera a conexão disponivel no pool de conexões*/
-		return this.dataSource.getConnection();
+		return DriverManager
+				.getConnection("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC",
+						"root", "123456");
+		
 		
 	}
 }
