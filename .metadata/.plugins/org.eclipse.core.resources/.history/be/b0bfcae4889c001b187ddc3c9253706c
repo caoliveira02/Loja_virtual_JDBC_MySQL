@@ -1,0 +1,28 @@
+package br.com.jdbc.modelo;
+
+public class Produto {
+	
+	public Integer id;
+	public String nome;
+	public String descricao;
+	
+	public Produto(String nome, String descricao) {
+		super();
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+	
+}

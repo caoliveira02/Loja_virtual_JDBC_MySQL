@@ -1,0 +1,11 @@
+import br.com.jdbc.modelo.Produto;
+
+public class TestaInsercaoComProduto {
+
+	public static void main(String[] args) {
+
+		Produto produto = new Produto("VENTILADOR", "Ventilador de teto");
+
+	}
+
+}
