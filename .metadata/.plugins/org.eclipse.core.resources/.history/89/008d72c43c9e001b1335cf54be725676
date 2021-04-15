@@ -65,7 +65,7 @@ public class ProdutoDAO {
 		
 		List<Produto> produtos = new ArrayList<Produto>();
 		
-		String sql = "SELECT ID, NOME, DESCRICAO FROM PRODUTO WHERE CATEGORIA_ID = ?";
+		String sql = "SELECT ID, NOME, DESCRICAO FROM PRODUTO WHERE CATEGORIA = ?";
 		
 		try(PreparedStatement pstm = connection.prepareStatement(sql)){
 			pstm.setInt(1, ct.getId());

@@ -26,6 +26,7 @@ public class TestaListagemDeCategorias {
 						System.out.println(ct.getNome() + " - " + produto.getNome());
 					}
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 					
