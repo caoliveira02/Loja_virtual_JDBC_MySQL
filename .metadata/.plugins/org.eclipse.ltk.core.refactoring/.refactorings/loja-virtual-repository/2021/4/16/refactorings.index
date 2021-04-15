@@ -27,3 +27,5 @@
 1618341611737	Rename type 'PersistenciaProduto'
 1618342067292	Move compilation unit
 1618435372017	Rename type 'TestaInsercaoComProduto'
+1618522810215	Delete element
+1618522839340	Rename type 'ProdutoDao'

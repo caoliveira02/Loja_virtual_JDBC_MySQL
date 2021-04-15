@@ -10,11 +10,11 @@ import java.util.List;
 
 import br.com.jdbc.modelo.Produto;
 
-public class ProdutoDao {
+public class ProdutoDAO {
 	
 	public Connection connection;
 
-	public ProdutoDao(Connection connection) {
+	public ProdutoDAO(Connection connection) {
 		this.connection = connection;
 	}
 	

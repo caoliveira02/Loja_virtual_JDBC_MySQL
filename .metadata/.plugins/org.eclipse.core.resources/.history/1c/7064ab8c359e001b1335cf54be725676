@@ -1,0 +1,16 @@
+package br.com.jdbc;
+
+import java.sql.Connection;
+import java.util.List;
+
+public class TestaListagemDeCategorias {
+
+	public static void main(String[] args) {
+
+		try(Connection connection = new ConnectionFactory().recuperarConexao()){
+			CategoriaDAO categoriaDAO = new CategoriaDAO();
+			List<Categoria> listaDeCategorias = categoriaDAO.listar();
+		}
+	}
+
+}

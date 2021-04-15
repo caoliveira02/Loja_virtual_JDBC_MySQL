@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.com.jdbc.dao.ProdutoDao;
+import br.com.jdbc.dao.ProdutoDAO;
 import br.com.jdbc.modelo.Produto;
 
 public class TestaInsercaoEListagemComProduto {
@@ -14,7 +14,7 @@ public class TestaInsercaoEListagemComProduto {
 		Produto produto = new Produto("VENTILADOR", "Ventilador de teto");
 		
 		try(Connection connection = new ConnectionFactory().recuperarConexao()){
-			ProdutoDao produtoDao = new ProdutoDao(connection);
+			ProdutoDAO produtoDao = new ProdutoDAO(connection);
 			produtoDao.salvar(produto);
 			
 			List<Produto> listaDeProdutos = produtoDao.listar();
